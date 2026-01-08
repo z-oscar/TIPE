@@ -73,3 +73,68 @@ python -m scripts.elliptic_curve_basic_demo
 - Reusable ECC/ElGamal logic lives in `src/models` and `src/utils`.
 - Scripts in `scripts/` are small runnable demos or exploratory utilities.
 - The PDF report has been moved to `reports/`.
+
+## Project Highlights
+
+- Elliptic curves over finite fields (Z/pZ)
+- Full group law implementation:
+  - Point addition
+  - Point doubling
+  - Point at infinity
+- Fast scalar multiplication (O(log n))
+- ElGamal cryptosystem on elliptic curves
+- Discrete logarithm attack illustration (Baby-Step Giant-Step)
+- Comparison with RSA (security & performance)
+
+---
+
+## Background
+
+Elliptic Curve Cryptography (ECC) is a modern asymmetric cryptographic approach that offers **strong security with smaller key sizes** compared to RSA.
+
+This project explores:
+- The mathematical structure of elliptic curves
+- Their use in public-key cryptography
+- Practical trade-offs in real-world cryptographic systems
+
+---
+
+## ElGamal on Elliptic Curves
+
+### Key Generation
+- Curve \( E \) over (Z/pZ)
+- Generator point \( G \) of order \( n \)
+- Private key: \( q \in [1, n-1] \)
+- Public key: \( P = qG \)
+
+### Encryption
+\[
+C_1 = kG,\quad C_2 = M + kP
+\]
+
+### Decryption
+\[
+M = C_2 - qC_1
+\]
+
+---
+
+## Code Structure
+
+- `Point`  
+  Handles elliptic curve points and the point at infinity
+
+- `Curve`  
+  Curve definition and group operations
+
+- Cryptographic utilities  
+  - Modular arithmetic
+  - Modular inverse
+  - Quadratic residues (Legendre symbol)
+
+- ElGamal module  
+  - Key generation
+  - Encryption
+  - Decryption
+
+---
