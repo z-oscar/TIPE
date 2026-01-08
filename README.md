@@ -1,92 +1,75 @@
-# TIPE
-Elliptic-curve cryptography
-e messaging system using asymmetric encryption based on the ElGamal cryptosystem over elliptic curves. The system ensures secure communication by leveraging the hardness of the discrete logarithm problem in elliptic curve cryptography (ECC).
+# TIPE – Elliptic-Curve Cryptography Experiments
 
-# Secure Messaging with Elliptic Curve ElGamal Encryption
+This repository contains a collection of educational experiments around elliptic-curve cryptography (ECC) and the ElGamal cryptosystem. The codebase includes reusable math/cryptography utilities, example scripts, and a report PDF.
 
-## Overview
+## Setup
 
-This project implements a secur
+Create a virtual environment and install the dependencies:
 
-## Features
-
-- **Asymmetric Encryption**: Uses public-key cryptography for secure message exchange.
-- **Elliptic Curve Cryptography (ECC)**: Provides strong security with smaller key sizes compared to traditional RSA.
-- **Message Integrity**: Ensures that only the intended recipient can decrypt messages.
-- **Efficient Implementation**: Optimized algorithms for key generation, encryption, and decryption.
-
-## Background
-
-Elliptic curve cryptography is widely used for secure communications due to its strong security properties and efficiency. The ElGamal cryptosystem, originally designed for cyclic groups, can be adapted to work on elliptic curves, providing a secure method for encrypting messages.
-
-## Project Structure
-
-```
-├── src
-│   ├── key_generation.py  # Generate elliptic curve keys
-│   ├── encryption.py      # Encrypt messages using ECC-ElGamal
-│   ├── decryption.py      # Decrypt messages
-│   ├── utils.py           # Helper functions for elliptic curve operations
-│   ├── messaging.py       # Implementation of secure message exchange
-│
-├── examples
-│   ├── demo.py            # Example usage of the secure messaging system
-│
-├── README.md              # Project documentation
-├── requirements.txt       # Dependencies
-```
-
-## Installation
-
-Ensure you have Python installed. Then, install the necessary dependencies:
-
-```sh
+```bash
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage
+> **Note:** The scripts assume the repository root is on the Python path. Run them from the repository root using the `-m` flag.
 
-### Generating Keys
+## Running scripts
 
-```python
-from src.key_generation import generate_keys
-private_key, public_key = generate_keys()
+Examples:
+
+```bash
+python -m scripts.el_gamal_demo
+python -m scripts.baby_step_giant_step_demo
+python -m scripts.transfert_point_elgamal
+python -m scripts.transfert_message_elgamal_demo
+python -m scripts.elliptic_curve_basic_demo
 ```
 
-### Encrypting a Message
+## Project structure
 
-```python
-from src.encryption import encrypt
-ciphertext = encrypt(public_key, "Hello, World!")
+```
+.
+├── README.md
+├── requirements.txt
+├── src/
+│   ├── __init__.py
+│   ├── data/
+│   ├── features/
+│   ├── models/
+│   │   ├── baby_step_elliptic.py
+│   │   ├── baby_step_elliptic_mod.py
+│   │   ├── baby_step_giant_step.py
+│   │   ├── el_gamal.py
+│   │   ├── el_gamal_elliptic.py
+│   │   ├── elliptic_curve.py
+│   │   ├── elliptic_curve_basic.py
+│   │   ├── elliptic_curve_mod.py
+│   │   ├── point.py
+│   │   └── transfert_message_elgamal.py
+│   ├── utils/
+│   │   ├── calcul_on_fq.py
+│   │   ├── expo.py
+│   │   └── operation_modulaire.py
+│   └── visualization/
+├── notebooks/
+├── scripts/
+│   ├── baby_step_giant_step_demo.py
+│   ├── demonstration1.py
+│   ├── el_gamal_demo.py
+│   ├── elliptic_curve_basic_demo.py
+│   ├── find_point.py
+│   ├── generation_exemple1.py
+│   ├── transfert_message_elgamal_demo.py
+│   └── transfert_point_elgamal.py
+├── reports/
+│   ├── TIPE_ZAIDAN_Oscar.pdf
+│   └── figures/
+└── tests/
 ```
 
-### Decrypting a Message
+## Notes
 
-```python
-from src.decryption import decrypt
-plaintext = decrypt(private_key, ciphertext)
-```
-
-### Running the Demo
-
-A demo script is provided in `examples/demo.py`:
-
-```sh
-python examples/demo.py
-```
-
-## Security Considerations
-
-- Ensure that private keys remain confidential.
-- Use sufficiently large key sizes to mitigate attacks.
-- Be cautious of side-channel attacks when deploying in real-world applications.
-
-## References
-
-- "Elliptic Curve Cryptography" - [https://math.univ-bpclermont.fr/\~rebolledo/page-fichiers/projetMichael.pdf](https://math.univ-bpclermont.fr/~rebolledo/page-fichiers/projetMichael.pdf)
-- "Cryptography and Network Security" - William Stallings
-
-## License
-
-This project is licensed under the MIT License.
-
+- Reusable ECC/ElGamal logic lives in `src/models` and `src/utils`.
+- Scripts in `scripts/` are small runnable demos or exploratory utilities.
+- The PDF report has been moved to `reports/`.

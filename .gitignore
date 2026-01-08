@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+.venv*/
+.env
+.ipynb_checkpoints/
+
+# Data & output artifacts
+reports/figures/
+reports/**/*.png
+reports/**/*.jpg
+reports/**/*.jpeg
+reports/**/*.svg
+
+# OS files
+.DS_Store

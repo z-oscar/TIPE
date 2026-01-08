@@ -2,7 +2,7 @@ import time
 import matplotlib.pyplot as plt
 
 
-def puissance_rec (x,n):
+def puissance_rec(x, n):
     """
 
     :param x: nombre à mettre à la puissance n
@@ -10,14 +10,13 @@ def puissance_rec (x,n):
     :return: x^n
     """
     if n == 1:
-        return  x
-    elif n % 2 == 0:
-        return puissance(x**2,n/2 )
-    else :
-        return x * puissance(x ** 2, (n-1) / 2)
+        return x
+    if n % 2 == 0:
+        return puissance(x**2, n / 2)
+    return x * puissance(x ** 2, (n - 1) / 2)
 
 
-def modular_power (x, n, q):
+def modular_power(x, n, q):
     """
     :param x: nombre à mettre à la puissance n modulo q
     :param n: puissance
@@ -27,11 +26,11 @@ def modular_power (x, n, q):
     e = 0
     res = 1
     while e != n:
-        res = (res * x)% q
+        res = (res * x) % q
         e += 1
     return res
 
-def puissance(x,n):S
+def puissance(x, n):
     """
     calcule x^n de facons naive récursivement
     -> ne marche pas pour grand n : maximum depth recursion
@@ -41,8 +40,7 @@ def puissance(x,n):S
     """
     if n == 1:
         return x
-    else :
-        return x * puissance(x,n-1)
+    return x * puissance(x, n - 1)
 
 def test1(x,n):
     """
@@ -91,7 +89,6 @@ def test_classique(x,d,f,q):
         tab.append(time.time() - t)
     return tab
 
-"""print(test2(789456,20000,30000,13))"""
 def main1():
     plt.xlabel("Distance")
     plt.ylabel("Density")
@@ -119,6 +116,4 @@ def main_test(x,d,f,q):
     plt.legend()
     plt.title("Comparaison des algorithmes d'exponentiation, des puissances de x = 50000 modulo q = 13")
     plt.show()
-
-"""main_test(50000,50000,100000,13)"""
 

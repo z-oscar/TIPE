@@ -1,6 +1,6 @@
-from Point import Point
-from calcul_on_Fq import modular_division, find_root
-from expo import modular_power
+from .point import Point
+from ..utils.calcul_on_fq import modular_division, find_root
+from ..utils.expo import modular_power
 import matplotlib.pyplot as plt
 
 

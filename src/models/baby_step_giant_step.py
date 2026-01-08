@@ -1,5 +1,6 @@
-from math import *
-from expo import modular_power
+from math import ceil, sqrt
+
+from ..utils.expo import modular_power
 
 def recherche(tab, x):
     """
@@ -89,6 +90,4 @@ def baby_step_giant_step(q, g, b):
             return i*m + j
 
 
-print(baby2(599, 3, 400))
-print(baby_step_giant_step(599,3,400))
 

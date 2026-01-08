@@ -1,5 +1,5 @@
-from expo import modular_power
-from operation_modulaire import modular_division
+from .expo import modular_power
+from .operation_modulaire import modular_division
 import matplotlib.pyplot as plt
 
 
@@ -114,33 +114,6 @@ def mult_point_of_curve(a, q, x, y, n):
     return xres, yres
 
 
-"""
-code un peu faut :
-def euclid_etendu(a: int, b: int):
-    last_u = 1
-    last_v = 0
-    u = 0
-    v = 1
-    while u*a + v*b != 1:
-        q = a // b
-        save_u = u
-        save_v = v
-        u = u - q * last_u
-        v = v - q * last_v
-        last_u = save_u
-        last_v = save_v
-    return (u, v)
-"""
-
-"""
-def test(p: int):
-    tab = generate_point(p)
-    tabx = [i[0] for i in tab]
-    taby = [i[1] for i in tab]
-    plt.scatter(tabx, taby)
-    plt.show()"""
-
-
 def verifie(tab):
     for i, j in tab:
         z = modular_power(j, 2, 103)
@@ -176,16 +149,5 @@ def test3():
         tab2.append(add_point_of_curve(-3, 103, tab2[i][0],tab2[i][1], point[0], point[1] ))
     print(tab)
     print(tab2)
-
-
-"""test2()
-# tab = generate_curve(-3, 4, 103)
-# print(tab)
-
-test3 = add_point_of_curve(-3, 4, 103, 90, 3, 98, 10)
-print(test3)
-
-print("hello")"""
-
 
 
