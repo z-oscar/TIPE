@@ -1,5 +1,7 @@
-from elleptic_curve_object import *
-from math import *
+from math import ceil, sqrt
+
+from .elliptic_curve import Curve
+from .point import Point
 
 def recherche(tab, p):
     """
@@ -39,8 +41,3 @@ def baby_step_giant_step(curve: Curve, g: Point, n: int, b: Point):
         else:
             return i*m + j
 
-curve = Curve(0,1)
-g = Point(False, 2,3)
-test2 = curve.add()
-test = baby_step_giant_step(curve, g, 6, Point(False,2,3))
-print(test)

@@ -1,5 +1,5 @@
-from Elliptic_curve_mod_object import Curve
-from Point import Point
+from .elliptic_curve_mod import Curve
+from .point import Point
 from random import randint
 
 

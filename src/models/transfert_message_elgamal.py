@@ -1,15 +1,6 @@
-from El_Gamal_Elliptic import *
-"""
-my_curve = Curve(-1, 3, 7919)
-lst = my_curve.generate_points_object()
-n = len(lst)
-print("les nombres de points est", n)
-p = lst[2]
-order = my_curve.get_order(p)
-print("p est d'ordre : ", order)
-
-private, public = create_keys(-1, 3, 7919, p, order, 500)
-"""
+from .el_gamal_elliptic import decryption, encryption
+from .elliptic_curve_mod import Curve
+from .point import Point
 
 
 def construct_dic_p_to_c(p: Point, c: Curve):

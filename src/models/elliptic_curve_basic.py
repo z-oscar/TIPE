@@ -17,8 +17,3 @@ def add(a, b, x1, y1, x2, y2):
         return x3, y3
     else:
         return "inf"
-
-
-test1 = belongs_to_curve(0, 1, 2, 3)
-test2 = add(0, 1, 2, 3, 2, 3)
-print(test2)

@@ -1,6 +1,8 @@
 from math import sqrt
 
-from transfert_message_elgamal import *
+from .elliptic_curve_mod import Curve
+from .point import Point
+from .transfert_message_elgamal import receive_msg
 
 
 def search2(p: Point, tab):
@@ -13,7 +15,7 @@ def search2(p: Point, tab):
 def search(p: Point, d):
     try:
         return d[p]
-    except:
+    except KeyError:
         return -1
 
 

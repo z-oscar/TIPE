@@ -1,6 +1,6 @@
 from random import randint
 
-def creation_cles(q,g,a):
+def creation_cles(q, g, a):
     """
     :param q: un entier premier (dans la pratique tres grand)
     :param g: un entier générateur de Z/qZ donc tel que p^q = 1
@@ -41,36 +41,13 @@ def dechiffrement(private_key, public_key, msg_encrypte):
 
 def chiffrement_message(public_key, msg):
     res = []
-    for lettre in msg :
+    for lettre in msg:
         res.append(chiffrement(public_key, ord(lettre)))
     return res
 
+
 def dechiffrement_message(private_key, public_key, msg_encrypte):
     res = ""
-    for i in msg_encrypte :
+    for i in msg_encrypte:
         res = res + chr(dechiffrement(private_key, public_key, i))
     return res
-
-"""
-test 1
-
-message = 123456789
-
-private_key, public_key = creation_cles(101,3,5)
-msg_encrypte = cryptage(public_key,message)
-print(cryptage(public_key,message))
-print(decryptage(private_key, public_key,msg_encrypte))
-print("done")
-"""
-
-"""test 2"""
-
-msg = "Hello world!"
-
-private_key, public_key = creation_cles(101,3,5)
-msg_crypte = chiffrement_message(public_key, msg)
-msg_decrypte = dechiffrement_message(private_key, public_key, msg_crypte)
-
-print(msg)
-print(msg_crypte)
-print(msg_decrypte)
